@@ -38,3 +38,13 @@ INSERT INTO books
  select author_fname, author_lname, count(*) from books group by author_fname, author_lname;
  
  select author_fname, author_lname, sum(pages) from books group by author_fname, author_lname order by sum(pages) DESC;
+ 
+ select * from books where author_lname in ('Harris', 'Saunders');
+ 
+ SELECT title, stock_quantity,
+    CASE 
+    WHEN stock_quantity <= 50 THEN '*'
+    WHEN stock_quantity <= 100 THEN '**'
+            ELSE '***'
+        END AS STOCK
+    FROM books; 
